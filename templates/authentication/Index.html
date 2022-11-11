@@ -2,11 +2,21 @@
 <html lang="en">
 
 <head>
+
+    <!-- loading all static files to get accesed -->
+    {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page Event+</title>
     <style>
+
+        body{
+            background-image: url('https://images.pexels.com/photos/787961/pexels-photo-787961.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -16,13 +26,14 @@
         .container {
             height: 100vh;
             width: 100%;
-            background-image: url(images/bg.png);
             background-position: center;
             background-size: cover;
             padding-right: 3%;
             padding-left: 5%;
             box-sizing: border-box;
             position: relative;
+            background: url("/static/bg-home");
+
         }
 
         .header {
@@ -33,11 +44,7 @@
             align-items: center;
         }
 
-        .logo {
-            width: 80px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
+        
 
         nav {
             flex: 1;
@@ -140,20 +147,31 @@
         .btn a{
             text-decoration: none;
         }
-
+        .logo{
+            color: #ff7200;
+            font-size: 25px;
+            font-family: Arial;
+            padding-left: 2px;
+            float: left;
+            padding-top: 20px;
+            margin-top: 5px
+        
+        }
+        
         
     </style>
 
 </head>
 
 <body>
+    
     <div class="container">
         <div class="header">
-            <!-- need to update the logo of event+ -->
-            <img src="#" class="logo">
+            <h2 class="logo">EVENT PLUS</h2>
             <nav>
                 <ul>
                     <li><a href="">Home</a></li>
+                    <li><a href="liveevents">Live Events</a></li>
                     <li><a href="">Contact</a></li>
                     <li><a href="">About Us</a></li>
                 </ul>
@@ -161,8 +179,6 @@
 
 
             <!--  -->
-
-
             {% if user.is_authenticated%}
             <h3>Hello   {{ fname }}</h3>
             <h4> You have successfully loggged in</h4>
@@ -184,6 +200,8 @@
         </div>
         {% endfor %}
     </div>
+
+
 </body>
 
 </html>

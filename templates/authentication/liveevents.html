@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Events</title>
+  
+  
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-family: sans-serif;
+            font-size: 10px;
+        }
+        
+        body {
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15)), url("https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80");
+        background-repeat: no-repeat;
+        background-size: cover;
+            padding-right: 3%;
+            padding-left: 5%;
+            box-sizing: border-box;
+            position: relative;
+        
+         
+        }
+        div.scroll {
+            margin:4px, 4px;
+            padding:4px;
+            background-color: green;
+            width: 500px;
+            height: 110px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            text-align:justify;
+        }
+        
+        
+        nav .container {
+            width: 100%;
+            text-align: center;
+          }
+          
+        
+        
+        .main{
+            background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%);
+            background-position: center;
+            background-size: cover;  
+        }
+        
+        .navbar{
+            width: 1200px;
+            height: 75px;
+            margin: auto;
+        }
+        
+        .icon{
+            width: 200px;
+            float: left;
+            height: 70px;
+        }
+        
+        .logo{
+            color: #ff7200;
+            font-size: 25px;
+            font-family: Arial;
+            padding-left: 2px;
+            float: left;
+            padding-top: 20px;
+            margin-top: 5px
+        }
+        
+        .menu{
+            width: 400px;
+            float: left;
+            height: 70px;
+        }
+        
+        ul{
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        ul li{
+            list-style: none;
+            margin-left: 62px;
+            margin-top: 27px;
+            font-size: 14px;
+        }
+        
+        ul li a{
+            text-decoration: none;
+            color: #fff;
+            font-family: Arial;
+            font-weight: bold;
+            transition: 0.4s ease-in-out;
+        }
+        
+        ul li a:hover{
+            color: #ff7200;
+        }
+        
+        .search{
+            width: 330px;
+            float: left;
+            margin-left: 270px;
+        }
+        
+        .srch{
+            font-family: 'Times New Roman';
+            width: 200px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid #ff7200;
+            margin-top: 13px;
+            color: #fff;
+            border-right: none;
+            font-size: 16px;
+            float: left;
+            padding: 10px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+        
+        .btn{
+            width: 100px;
+            height: 40px;
+            background: #ff7200;
+            border: 2px solid #ff7200;
+            margin-top: 13px;
+            color: #fff;
+            font-size: 15px;
+            border-bottom-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            transition: 0.2s ease;
+            cursor: pointer;
+        }
+        .btn:hover{
+            color: #000;
+        }
+        
+        .btn:focus{
+            outline: none;
+        }
+        
+        .srch:focus{
+            outline: none;
+        }
+        
+        
+        
+        
+        
+        
+        .event-post {
+            width: 100%;
+            max-width: 125rem;
+            padding: 5rem;
+            background-color: #ffffff;
+            opacity: 85%;
+            box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            border-radius: .8rem;
+            margin: 30px;
+        }
+        
+        .event-post_img {
+            min-width: 40rem;
+            max-width: 40rem;
+            height: 30rem;
+            transform: translateX(-8rem);
+            position: relative;
+        }
+        
+        .event-post_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: .9rem;
+            display: block;
+        }
+        
+        .event-post_img img::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-shadow: .5rem .5rem 3rem 1px rgba(0, 0, 0, 0.5);
+            border-radius: .8rem;
+        }
+        
+        .event-post_date span {
+            display: block;
+            color: #00000080;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: .5rem 0;
+        }
+        
+        .event-post_title {
+            font-size: 2.8rem;
+            margin: 1.5rem 0 2rem;
+            text-transform: uppercase;
+            color: #4facfe;
+        }
+        
+        .event-post_text {
+            margin-bottom: 3rem;
+            font-size: 1.8rem;
+            color: #000000b3;
+        }
+        
+        .event-post_cta {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            border-radius: .8rem;
+            background: linear-gradient(to right, #c945cf 0%, #04a6bd 100%);
+        }
+        
+        .event-post_cta:hover {
+            background: linear-gradient(to right, #04a6bd 0%, #c945cf 100%);
+        }
+        
+        @media screen and (max-width: 1068px) {
+            .event-post {
+                max-width: 80rem;
+            }
+            .event-post_img {
+                min-width: 30rem;
+                max-width: 30rem;
+            }
+            .container h2 {
+                margin-top: 120px;
+                margin-left: 275px;
+            }
+        }
+        
+        @media screen and (max-width: 868px) {
+            .event-post {
+                max-width: 70rem;
+            }
+            .container h2 {
+                margin-top: 20px;
+                margin-left: 142px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .event-post {
+                padding: 2.5rem;
+                flex-direction: column;
+            }
+            .event-post_img {
+                min-width: 100%;
+                max-width: 100%;
+                transform: translate(0, -1rem);
+            }
+            .container {
+                margin-top: auto;
+            }
+        }
+        
+        @media screen and (max-width: 823px) {
+            .container h2 {
+                margin-top: 35px;
+                margin-left: 142px;
+            }
+        }
+                
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">EVENT PLUS</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="liveevents">EVENTS</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Search an event">
+                <a href="#"> <button class="btn">Search</button></a>
+            </div>
+        </div>
+
+
+        <div class="gap">
+
+        </div>
+
+
+</div>
+<div class="container">
+    <div class="event-post">
+    <div class="event-post_img">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt="">
+    </div>
+    <div class="event-post_info">
+        <div class="event-post_date">
+            <span>Updated on</span>
+            <span>Nov 12 2021</span>
+        </div>
+        <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
+        <p class="event-post_text">
+            Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
+            facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
+            dicta
+            accusantium.
+        </p>
+        <a href="#" class="event-post_cta">Read More</a>
+    </div>
+</div><div class="container">
+    <div class="event-post">
+    <div class="event-post_img">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt="">
+    </div>
+    <div class="event-post_info">
+        <div class="event-post_date">
+            <span>Updated on</span>
+            <span>Nov 12 2021</span>
+        </div>
+        <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
+        <p class="event-post_text">
+            Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
+            facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
+            dicta
+            accusantium.
+        </p>
+        <a href="#" class="event-post_cta">Read More</a>
+    </div>
+</div><div class="container">
+    <div class="event-post">
+    <div class="event-post_img">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt="">
+    </div>
+    <div class="event-post_info">
+        <div class="event-post_date">
+            <span>Updated on</span>
+            <span>Nov 12 2021</span>
+        </div>
+        <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
+        <p class="event-post_text">
+            Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
+            facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
+            dicta
+            accusantium.
+        </p>
+        <a href="#" class="event-post_cta">Read More</a>
+    </div>
+</div><div class="container">
+    <div class="event-post">
+    <div class="event-post_img">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt="">
+    </div>
+    <div class="event-post_info">
+        <div class="event-post_date">
+            <span>Updated on</span>
+            <span>Nov 12 2021</span>
+        </div>
+        <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
+        <p class="event-post_text">
+            Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
+            facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
+            dicta
+            accusantium.
+        </p>
+        <a href="#" class="event-post_cta">Read More</a>
+    </div>
+</div><div class="container">
+    <div class="event-post">
+    <div class="event-post_img">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt="">
+    </div>
+    <div class="event-post_info">
+        <div class="event-post_date">
+            <span>Updated on</span>
+            <span>Nov 12 2021</span>
+        </div>
+        <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
+        <p class="event-post_text">
+            Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
+            facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
+            dicta
+            accusantium.
+        </p>
+        <a href="#" class="event-post_cta">Read More</a>
+    </div>
+</div>
+            <div class="container">
+            <div class="event-post">
+            <div class="event-post_img">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                    alt="">
+            </div>
+            <div class="event-post_info">
+                <div class="event-post_date">
+                    <span>Updated on</span>
+                    <span>Nov 12 2021</span>
+                </div>
+                <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
+                <p class="event-post_text">
+                    Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
+                    facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
+                    dicta
+                    accusantium.
+                </p>
+                <a href="#" class="event-post_cta">Read More</a>
+            </div>
+        </div>
+       
+    </div>
+</body>
+
+</html>
+        

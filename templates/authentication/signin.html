@@ -10,7 +10,9 @@
 
 
         body{
-            background-image: url('https://www.pexels.com/photo/group-of-people-raise-their-hands-on-stadium-976866/');
+            background-image: url('https://images.pexels.com/photos/10460300/pexels-photo-10460300.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         * {
     margin: 0;
@@ -18,22 +20,7 @@
     box-sizing: border-box;
 }
 
-.bg-img {
-    background: url();
-    height: 150vh;
-    background-size: cover;
-    background-position: center;
-}
 
-.bg-img::after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    height: 150%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.4);
-}
 
 .content {
     position: absolute;
@@ -219,18 +206,9 @@ input[type="submit"]:hover {
                 <div class="field">
                     <input type="submit" value="LOGIN">
                 </div>
-                <div class="login">Or login with</div>
-                <div class="link">
-                    <div class="google">
-                        <i class="fa fa-google"><span>Google</span></i>
-                    </div>
-                    <div class="facebook">
-                        <i class="fa fa-facebook-f"><span>Facebook</span></i>
-                    </div>
-
-                </div>
+                
                 <div class="signup">Don't have account?
-                    <a href="reg.html">SignUp Now</a>
+                    <a href="/signup">SignUp Now</a>
                 </div>
             </form>
         </div>

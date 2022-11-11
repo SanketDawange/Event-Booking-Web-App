@@ -1,10 +1,11 @@
-import email
 from http.client import HTTPResponse
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+
+
 # Create your views here.
 def home(request):
     return render(request,"authentication/index.html")
@@ -55,3 +56,7 @@ def signout(request):
     logout(request)
     messages.success( request, "Logged out from Event+")
     return redirect ('home')
+
+
+def liveevents(request):
+    return render(request, "authentication/liveevents.html")
