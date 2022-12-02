@@ -148,13 +148,13 @@
             text-decoration: none;
         }
         .logo{
-            color: #ff7200;
+            color: white;
             font-size: 25px;
             font-family: Arial;
             padding-left: 2px;
             float: left;
-            padding-top: 20px;
-            margin-top: 5px
+            /* padding-top: px; */
+            /* margin-top: 5px */
         
         }
         
@@ -228,11 +228,12 @@
     <div class="container">
         <div class="header">
             <h2 class="logo">EVENT PLUS</h2>
+    
             <nav>
-                <ul>
+                <ul >
                     <li><a href="">Home</a></li>
                     <li><a href="liveevents">Live Events</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="contact">Contact</a></li>
                     <li><a href="">About Us</a></li>
                 </ul>
             </nav>
@@ -240,9 +241,8 @@
 
             <!--  -->
             {% if user.is_authenticated%}
-            <h3>Hello   {{ fname }}</h3>
-            <h4> You have successfully loggged in</h4>
-            <button class="btn" id="btn3" type="submit"> <a href="/signout"> SignOut</a> </button>
+            <h4>Hello {{ fname }}</h4>
+            <button class="btn" id="btn3" type="submit"> <a href="/myaccount">My account</a> </button>
 
             {% else %}
             <button class="btn" id="btn1" type="submit"> <a href="/signup"> SignUp</a></button>

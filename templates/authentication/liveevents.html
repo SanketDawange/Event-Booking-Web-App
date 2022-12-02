@@ -286,7 +286,10 @@
                 margin-left: 142px;
             }
         }
-                
+         .event-container{
+            margin-top: 1px;
+            color: #fff;
+         }   
     </style>
 </head>
 
@@ -302,13 +305,21 @@
                     <li><a href="/">HOME</a></li>
                     <li><a href="#">ABOUT</a></li>
                     <li><a href="liveevents">EVENTS</a></li>
-                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="contact">CONTACT</a></li>
+                    <li>
+                        <div class="event-container">
+                            <label>Filter by place</label>
+                            <select id="events">
+                                {% for event in events %}
+                              <option value="{{event.event_name}}">{{event.event_place}}</option>
+                              {% endfor %}
+                            </select>
+                        </div>
+                    </li>
+                    
                 </ul>
             </div>
-            <div class="search">
-                <input class="srch" type="search" name="" placeholder="Search an event">
-                <a href="#"> <button class="btn">Search</button></a>
-            </div>
+            
         </div>
 
 
@@ -318,130 +329,40 @@
 
 
 </div>
+
+
+<!-- 
+{% for event in events %}
+<h3>{{ event.event_name }}</h3>
+{% endfor %}
+-->
+
+{% for event in events %}
 <div class="container">
     <div class="event-post">
-    <div class="event-post_img">
+    <!-- <div class="event-post_img">
         <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
             alt="">
-    </div>
+    </div> -->
     <div class="event-post_info">
         <div class="event-post_date">
-            <span>Updated on</span>
-            <span>Nov 12 2021</span>
+            <span> Date: {{ event.event_date }} Place: {{ event.event_place }}
+                Total Seats: {{ event.total_seats }} </span>
         </div>
-        <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
+        <h1 class="event-post_title">{{ event.event_name }}</h1>
+        
         <p class="event-post_text">
-            Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
-            facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
-            dicta
-            accusantium.
+            
+            
+            {{ event.event_description }}
         </p>
-        <a href="#" class="event-post_cta">Read More</a>
-    </div>
-</div><div class="container">
-    <div class="event-post">
-    <div class="event-post_img">
-        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            alt="">
-    </div>
-    <div class="event-post_info">
-        <div class="event-post_date">
-            <span>Updated on</span>
-            <span>Nov 12 2021</span>
-        </div>
-        <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
-        <p class="event-post_text">
-            Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
-            facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
-            dicta
-            accusantium.
-        </p>
-        <a href="#" class="event-post_cta">Read More</a>
-    </div>
-</div><div class="container">
-    <div class="event-post">
-    <div class="event-post_img">
-        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            alt="">
-    </div>
-    <div class="event-post_info">
-        <div class="event-post_date">
-            <span>Updated on</span>
-            <span>Nov 12 2021</span>
-        </div>
-        <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
-        <p class="event-post_text">
-            Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
-            facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
-            dicta
-            accusantium.
-        </p>
-        <a href="#" class="event-post_cta">Read More</a>
-    </div>
-</div><div class="container">
-    <div class="event-post">
-    <div class="event-post_img">
-        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            alt="">
-    </div>
-    <div class="event-post_info">
-        <div class="event-post_date">
-            <span>Updated on</span>
-            <span>Nov 12 2021</span>
-        </div>
-        <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
-        <p class="event-post_text">
-            Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
-            facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
-            dicta
-            accusantium.
-        </p>
-        <a href="#" class="event-post_cta">Read More</a>
-    </div>
-</div><div class="container">
-    <div class="event-post">
-    <div class="event-post_img">
-        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            alt="">
-    </div>
-    <div class="event-post_info">
-        <div class="event-post_date">
-            <span>Updated on</span>
-            <span>Nov 12 2021</span>
-        </div>
-        <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
-        <p class="event-post_text">
-            Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
-            facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
-            dicta
-            accusantium.
-        </p>
-        <a href="#" class="event-post_cta">Read More</a>
+        <a href="{% url 'eventdescription' event.event_name %}" class="event-post_cta">Book Now!</a>
+        <!-- <a href="eventdescription" class="event-post_cta">Book Now!</a> -->
     </div>
 </div>
-            <div class="container">
-            <div class="event-post">
-            <div class="event-post_img">
-                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    alt="">
-            </div>
-            <div class="event-post_info">
-                <div class="event-post_date">
-                    <span>Updated on</span>
-                    <span>Nov 12 2021</span>
-                </div>
-                <h1 class="event-post_title">Ongoing Event Name goes Here....</h1>
-                <p class="event-post_text">
-                    Event Information ........Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores a, tempore veniam quasi sint fugiat
-                    facilis, facere, amet magnam optio velit. Laudantium et temporibus soluta, esse cupiditate aliquid
-                    dicta
-                    accusantium.
-                </p>
-                <a href="#" class="event-post_cta">Read More</a>
-            </div>
-        </div>
-       
-    </div>
+{% endfor %}    
+
+
 </body>
 
 </html>
